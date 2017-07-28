@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+</head>
+
+<body onload="init();">
+
+<canvas id="canvas" width="800" height="600" style="border: black solid 1px"></canvas>
+
+</body>
+
+<script>
+    var stage;
+    var canvas;
+
+    function init() {
+        window.game = window.game || {};
+        game.main = new game.OrbDestroyer();
+    }
+</script>
+</html>
