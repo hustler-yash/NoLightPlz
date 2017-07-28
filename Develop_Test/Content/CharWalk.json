@@ -1,0 +1,174 @@
+{"frames": [
+
+{
+	"filename": "charRun_000.png",
+	"frame": {"x":1,"y":1,"w":308,"h":661},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":661},
+	"sourceSize": {"w":324,"h":662},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_001.png",
+	"frame": {"x":664,"y":1,"w":308,"h":665},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":665},
+	"sourceSize": {"w":324,"h":668},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_002.png",
+	"frame": {"x":1331,"y":1,"w":308,"h":668},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":668},
+	"sourceSize": {"w":324,"h":672},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_003.png",
+	"frame": {"x":1,"y":311,"w":308,"h":671},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":671},
+	"sourceSize": {"w":324,"h":676},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_004.png",
+	"frame": {"x":1335,"y":931,"w":309,"h":672},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":309,"h":672},
+	"sourceSize": {"w":324,"h":678},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_005.png",
+	"frame": {"x":1,"y":1552,"w":311,"h":672},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":311,"h":672},
+	"sourceSize": {"w":324,"h":679},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_022.png",
+	"frame": {"x":1349,"y":1554,"w":312,"h":671},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":312,"h":671},
+	"sourceSize": {"w":325,"h":679},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_024.png",
+	"frame": {"x":675,"y":1553,"w":311,"h":672},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":311,"h":672},
+	"sourceSize": {"w":324,"h":679},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_025.png",
+	"frame": {"x":1349,"y":1242,"w":310,"h":672},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":310,"h":672},
+	"sourceSize": {"w":324,"h":679},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_026.png",
+	"frame": {"x":1,"y":1241,"w":309,"h":672},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":309,"h":672},
+	"sourceSize": {"w":324,"h":679},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_027.png",
+	"frame": {"x":675,"y":1242,"w":309,"h":672},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":309,"h":672},
+	"sourceSize": {"w":324,"h":678},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_028.png",
+	"frame": {"x":674,"y":311,"w":308,"h":671},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":671},
+	"sourceSize": {"w":324,"h":677},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_029.png",
+	"frame": {"x":1347,"y":311,"w":308,"h":670},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":670},
+	"sourceSize": {"w":324,"h":676},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_030.png",
+	"frame": {"x":1,"y":621,"w":308,"h":669},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":669},
+	"sourceSize": {"w":324,"h":674},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_031.png",
+	"frame": {"x":672,"y":621,"w":308,"h":668},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":668},
+	"sourceSize": {"w":324,"h":673},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_032.png",
+	"frame": {"x":1342,"y":621,"w":308,"h":667},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":667},
+	"sourceSize": {"w":324,"h":671},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_033.png",
+	"frame": {"x":1,"y":931,"w":308,"h":666},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":666},
+	"sourceSize": {"w":324,"h":669},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "charRun_034.png",
+	"frame": {"x":669,"y":931,"w":308,"h":664},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":664},
+	"sourceSize": {"w":324,"h":666},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "CharWalk.png",
+	"format": "RGBA8888",
+	"size": {"w":2022,"h":1867},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:2e1fb787a4fca9a9d283064b8d432dfd:d9e4350a6fe0b615eb0db7201af914a7:44046d396b7c453bd46eb5d3b703a7b2$"
+}
+}

@@ -1,0 +1,93 @@
+{"frames": [
+
+{
+	"filename": "transformer-1.png",
+	"frame": {"x":1,"y":653,"w":222,"h":264},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":136,"y":116,"w":222,"h":264},
+	"sourceSize": {"w":222,"h":264},
+	"pivot": {"x":0.513514,"y":0.507576}
+},
+{
+	"filename": "transformer-2.png",
+	"frame": {"x":653,"y":1,"w":222,"h":290},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":136,"y":116,"w":222,"h":290},
+	"sourceSize": {"w":222,"h":290},
+	"pivot": {"x":0.513514,"y":0.462069}
+},
+{
+	"filename": "transformer-3.png",
+	"frame": {"x":625,"y":276,"w":224,"h":312},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":136,"y":116,"w":224,"h":312},
+	"sourceSize": {"w":224,"h":312},
+	"pivot": {"x":0.508929,"y":0.429487}
+},
+{
+	"filename": "transformer-4.png",
+	"frame": {"x":378,"y":623,"w":223,"h":331},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":136,"y":116,"w":223,"h":331},
+	"sourceSize": {"w":223,"h":331},
+	"pivot": {"x":0.511211,"y":0.404834}
+},
+{
+	"filename": "transformer-5.png",
+	"frame": {"x":378,"y":276,"w":245,"h":345},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":136,"y":116,"w":245,"h":345},
+	"sourceSize": {"w":245,"h":345},
+	"pivot": {"x":0.465306,"y":0.388406}
+},
+{
+	"filename": "transformer-6.png",
+	"frame": {"x":1,"y":1,"w":273,"h":375},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":133,"y":116,"w":273,"h":375},
+	"sourceSize": {"w":273,"h":375},
+	"pivot": {"x":0.428571,"y":0.357333}
+},
+{
+	"filename": "transformer-7.png",
+	"frame": {"x":1,"y":378,"w":273,"h":375},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":133,"y":116,"w":273,"h":375},
+	"sourceSize": {"w":273,"h":375},
+	"pivot": {"x":0.428571,"y":0.357333}
+},
+{
+	"filename": "transformer-8.png",
+	"frame": {"x":276,"y":1,"w":273,"h":375},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":133,"y":116,"w":273,"h":375},
+	"sourceSize": {"w":273,"h":375},
+	"pivot": {"x":0.428571,"y":0.357333}
+},
+{
+	"filename": "transformer.png",
+	"frame": {"x":711,"y":502,"w":222,"h":217},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":136,"y":116,"w":222,"h":217},
+	"sourceSize": {"w":222,"h":217},
+	"pivot": {"x":0.513514,"y":0.617512}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "transformer.png",
+	"format": "RGBA8888",
+	"size": {"w":944,"h":876},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c966ca42ff7714158fcdcc235aa1c676:a83739f5f3a2ad64f040f081a9c1a700:2f1ead6f1dbce9a050208c8fd9da9387$"
+}
+}
