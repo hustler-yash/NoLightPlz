@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="Lib/easeljs-0.7.1.min.js"></script>
+    <script src="Lib/soundjs-0.5.2.min.js"></script>
+    <script src="Lib/preloadjs-0.4.1.min.js"></script>
+    <script src="JS/Game.js"></script>
+    <script src="JS/OrbDestroyer.js"></script>
+</head>
+<body onload="init();">
+    <canvas id="canvas" width="800" height="600" style="border: black solid 1px"></canvas>
+   
+</body>
+<script>
+    var stage;
+    var canvas;
+
+    function init() {
+        window.game = window.game || {};
+        game.main = new game.OrbDestroyer();
+    }
+</script>
+</html>
