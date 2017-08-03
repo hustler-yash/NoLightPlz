@@ -66,6 +66,8 @@
             // Creating object from a seperate file
             // File name is MakePlayer
             player = new MakePlayer();
+
+            //After player is created, logic for the game.
             orb.speed = Math.random() * 4;
             orb.size = orbSize;
             orb.x = orbSize;
