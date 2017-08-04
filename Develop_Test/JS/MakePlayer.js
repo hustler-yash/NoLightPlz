@@ -5,8 +5,8 @@
     }
     
     // Making the player - Applying the image to object
-    // var p = MakePlayer.prototype = new createjs.Shape();
-    var p = MakePlayer.prototype = new createjs.Sprite();
+     var p = MakePlayer.prototype = new createjs.Shape();
+   // var p = MakePlayer.prototype = new createjs.Sprite();
 
    // var p = MakePlayer.prototype = new createjs.SpriteSheet(data);
    // var pig = new Pig(ss);
@@ -22,14 +22,14 @@
 
     MakePlayer.prototype.initialize = function () {
         
-        this.size = size;
+       // this.size = size;
         this.Shape_initialize();
        // this.alpha = Math.random();
-        this.graphics.beginFill(color).drawCircle(0, 0, size);
+        this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
         this.on('tick', this.pulse);
     }
-    //MakePlayer.prototype.pulse = function () {
-    //    this.alpha = Math.cos(this.count++ * 0.1) * 0.4 + 0.6;
-    //}
+    MakePlayer.prototype.pulse = function () {
+        this.alpha = Math.cos(this.count++ * 0.1) * 0.4 + 0.6;
+    }
     window.MakePlayer = MakePlayer;
 }());

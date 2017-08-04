@@ -58,11 +58,10 @@
 
     // Create player object
     p.createPlayer = function () {
-         var i, player, color;
-        // Container for player object - players - with s at the end
+       // var i, orb, color;
         var players = this.playerContainer;
         var numPlayers = 1;
-        var playerSize = 25;
+        //var orbSize = 25;
 
         for (i = 0; i < numPlayers; i++) {
            // color = '#' + Math.floor(Math.random() * 16777215).toString(16)
@@ -76,15 +75,15 @@
             player.speed = Math.random() * 4;
           //  orb.size = orbSize;
             // Player Object's position
-            player.x = playerSize;
-            player.y = playerSize + (i * playerSize * 2);
+            player.x = orbSize;
+            player.y = orbSize + (i * orbSize * 2);
 
             player.on('click', this.onPlayerClick, this);
 
             // Add controls for the Player
             // Left Key, Right Key , Space
             player.on('', this.onPlayerClick, this);
-            players.addChild(player);
+            orbs.addChild(orb);
         }// End of for loop
 
     }
@@ -104,7 +103,7 @@
 
     }
 
-    p.createTransformers = function () {
+    p.createTransformer = function () {
 
     }
 

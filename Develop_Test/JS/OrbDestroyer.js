@@ -69,6 +69,7 @@
             this.currentScene.run();
         }
     }
+
     p.run = function () {
         if (this.currentGameStateFunction != null) {
             this.currentGameStateFunction();

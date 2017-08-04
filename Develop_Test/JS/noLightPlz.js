@@ -73,17 +73,45 @@
         this.changeState(game.GameStates.RUN_SCENE);
     }
 
+    //Main Game
+    // 
+    p.gameStateGame = function () {
+        var scene = new game.Game();
+        scene.on(game.GameStateEvents.GAME_OVER, this.onStateEvent, this, false, { state: game.GameStates.GAME_OVER });
+        stage.addChild(scene);
+        stage.removeChild(this.currentScene);
+        this.currentScene = scene;
+        this.changeState(game.GameStates.RUN_SCENE);
+    }
+
+    // Game Over
+    //
+    //p.gameStateGameOver = function () {
+    //    var scene = new game.GameOver();
+    //    stage.addChild(scene);
+    //    scene.on(game.GameStateEvents.MAIN_MENU, this.onStateEvent, this, false, { state: game.GameStates.MAIN_MENU });
+    //    scene.on(game.GameStateEvents.GAME, this.onStateEvent, this, false, { state: game.GameStates.GAME });
+    //    stage.removeChild(this.currentScene);
+    //    this.currentScene = scene;
+    //    this.changeState(game.GameStates.RUN_SCENE);
+    //}
+
+
+
+    p.gameStateRunScene = function () {
+        if (this.currentScene.run) {
+            this.currentScene.run();
+        }
+    }
 
 
 
 
-
-
-
-
-
-
-
+    p.run = function () {
+        if (this.currentGameStateFunction != null) {
+            this.currentGameStateFunction();
+        }
+    }
     p.onTick = function (e) {
         this.run();
         stage.update();
