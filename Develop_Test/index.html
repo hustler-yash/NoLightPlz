@@ -7,7 +7,11 @@
     <script src="Lib/soundjs-0.5.2.min.js"></script>
     <script src="Lib/preloadjs-0.4.1.min.js"></script>
     <script src="JS/Game.js"></script>
-    <script src="JS/OrbDestroyer.js"></script>
+    <script src="JS/GameMenu.js"></script>
+    <script src="JS/MakePlayer.js"></script>
+    <script src="JS/noLightPlz.js"></script>
+    <script src="JS/SimpleButton.js"></script>
+    <script src="JS/state.js"></script>
 </head>
 <body onload="init();">
     <canvas id="canvas" width="800" height="600" style="border: black solid 1px"></canvas>
@@ -22,7 +26,7 @@
 
     function init() {
         window.game = window.game || {};
-        game.main = new game.OrbDestroyer();
+        game.main = new game.noLightPlz();
     }
 </script>
 

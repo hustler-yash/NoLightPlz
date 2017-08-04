@@ -6,12 +6,12 @@
     }
 
     // assigning long name to p
-    var n = noLightPlz.prototype;
+    var p = noLightPlz.prototype;
 
     // Creating Scene -> Game State -> Game State Function
-    n.currentGameStateFunction; // activity related to current State
-    n.currentGameState; // States
-    n.currentScene; // Current Scene
+    p.currentGameStateFunction; // activity related to current State
+    p.currentGameState; // States
+    p.currentScene; // Current Scene
 
     // initialize function - First thing to start
     p.initialize = function () {
@@ -89,6 +89,6 @@
         stage.update();
     }
 
-    window.game.OrbDestroyer = OrbDestroyer;
+    window.game.noLightPlz = noLightPlz;
 
 }(window));
