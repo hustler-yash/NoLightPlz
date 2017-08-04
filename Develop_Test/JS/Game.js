@@ -39,8 +39,11 @@
 
     // Adding Background function
     p.addBG = function () {
-        var bg = new createjs.Shape();
-        bg.graphics.beginFill('#92CBD6').drawRect(0, 0, canvas.width, canvas.height);
+        //var bg = new createjs.Shape();
+        var bg = new createjs.Bitmap('Content/gameBG.jpg');
+        bg.scaleX = 1.4;
+        bg.scaleY = 1.4;
+       // bg.graphics.beginFill('#92CBD6').drawRect(0, 0, canvas.width, canvas.height);
         this.addChild(bg);
     }
 

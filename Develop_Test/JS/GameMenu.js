@@ -16,13 +16,17 @@
     p.initialize = function () {
         this.Container_initialize();
         this.addBG();
-        this.addTitle();
+      //  this.addTitle();
       //  this.addOrbs();
         this.addButton();
+        this.addControlsButton();
     }
     p.addBG = function () {
-        var bg = new createjs.Shape();
-        bg.graphics.beginFill('0').drawRect(0, 0, canvas.width, canvas.height);
+        //var bg = new createjs.Shape();
+        var bg = new createjs.Bitmap('Content/NLP_logo.jpg');
+        bg.scaleX = 1.3;
+        bg.scaleY = 1;
+       // bg.graphics.beginFill('0').drawRect(0, 0, canvas.width, canvas.height);
         this.addChild(bg);
     }
     p.addTitle = function () {
@@ -56,20 +60,40 @@
         btn.on('click', this.playGame, this);
 
         //dimensions and postitions of button
-        btn.regX = btn.width / 2;
+        btn.regX = btn.width / 2 + 200;
         btn.x = canvas.width / 2;
-        btn.y = 400;
+        btn.y = 500;
 
         btn.setButton({upColor:'FF0000', color:'#FFF', borderColor:'#FFF', overColor:'#900'});
+        this.addChild(btn);
+    }
+
+    // How to Play - Button
+    p.addControlsButton = function () {
+        var btn, event;
+        btn = new ui.SimpleButton('How To Play');
+        btn.on('click', this.howToPlay, this);
+
+        //dimensions and postitions of button
+        btn.regX = btn.width / 2 - 200;
+        btn.x = canvas.width / 2;
+        btn.y = 500;
+
+        btn.setButton({ upColor: 'FF0000', color: '#FFF', borderColor: '#FFF', overColor: '#900' });
         this.addChild(btn);
     }
 
     p.playGame = function (e) {
         this.dispatchEvent(game.GameStateEvents.GAME);
     }
-    p.run = function () {
-        this.titleTxt.alpha = Math.cos(this.count++ * 0.1) * 0.4 + 0.6;
+
+    p.howToPlay = function (e) {
+        this.dispatchEvent(game.GameStateEvents.howToPlay);
     }
+
+    //p.run = function () {
+    //    this.titleTxt.alpha = Math.cos(this.count++ * 0.1) * 0.4 + 0.6;
+    //}
     window.game.GameMenu = GameMenu;
 
 }(window));

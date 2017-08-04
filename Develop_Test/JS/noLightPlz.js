@@ -32,6 +32,9 @@
             case game.GameStates.MAIN_MENU:
                 this.currentGameStateFunction = this.gameStateMainMenu;
                 break;
+            case game.GameStates.HowToPlay:
+                this.currentGameStateFunction = this.gameStateHowToPlay;
+                break;
             case game.GameStates.GAME:
                 this.currentGameStateFunction = this.gameStateGame;
                 break;
@@ -71,6 +74,31 @@
         //Changing the state of Game
         // Here - game will be in running mode.
         this.changeState(game.GameStates.RUN_SCENE);
+    }
+
+    //How to play - Menu
+    //
+    p.gameStateHowToPlay = function () {
+        //creating scene
+        var scene = new game.HowToPlay();
+
+        // adding the function to scene or library
+        // Here, game.GameStateEvents.GAME - GAME is a file.
+        scene.on(game.GameStateEvents.GAME, this.onStateEvent, this, false, { state: game.GameStates.GAME });
+
+        //adding scene to stage
+        stage.addChild(scene);
+
+        // removing current child
+        stage.removeChild(this.currentScene);
+
+        // Assigning scene to Current scene
+        this.currentScene = scene;
+
+        //Changing the state of Game
+        // Here - game will be in running mode.
+        this.changeState(game.GameStates.RUN_SCENE);
+    
     }
 
     //Main Game
