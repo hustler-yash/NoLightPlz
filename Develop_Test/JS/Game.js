@@ -23,8 +23,10 @@
         this.addBG(); // Add backkground
         this.addMessages(); // Add Message
 
+
         this.createplayerContainer(); // create playerContainer
         this.createPlayer(); // create actual player object
+        this.createPlayerControls(); // create player controls
 
         this.createplayerContainer(); // create transformerContainer
         this.createTransformers(); // create actual transformer object
@@ -69,17 +71,32 @@
 
             //After player is created, logic for the game.
             orb.speed = Math.random() * 4;
-            orb.size = orbSize;
-            orb.x = orbSize;
-            orb.y = orbSize + (i * orbSize * 2);
-            orb.on('click', this.onOrbClick, this);
+          //  orb.size = orbSize;
+            // Player Object's position
+            player.x = orbSize;
+            player.y = orbSize + (i * orbSize * 2);
+
+            player.on('click', this.onPlayerClick, this);
+
+            // Add controls for the Player
+            // Left Key, Right Key , Space
+            player.on('', this.onPlayerClick, this);
             orbs.addChild(orb);
         }// End of for loop
 
     }
-    p.onOrbClick = function (e) {
+    // Set controls for the player
+    p.createPlayerControls = function () {
+        
+    }
+
+    // This is not needed.
+    p.onPlayerClick = function (e) {
+        // Logic for Clicking on Player
         this.orbContainer.removeChild(e.target);
     }
+
+
     p.update = function () {
         var i, orb, nextX;
         var len = this.orbContainer.getNumChildren();
