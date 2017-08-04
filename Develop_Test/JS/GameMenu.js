@@ -88,7 +88,7 @@
     }
 
     p.howToPlay = function (e) {
-        this.dispatchEvent(game.GameStateEvents.howToPlay);
+        this.dispatchEvent(game.GameStateEvents.HowToPlay);
     }
 
     //p.run = function () {
