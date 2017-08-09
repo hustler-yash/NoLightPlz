@@ -22,7 +22,7 @@
         this.Container_initialize();
         this.addBG(); // Add backkground
         this.addMessages(); // Add Message
-
+        this.addButton();
 
         this.createPlayerContainer(); // create playerContainer
         this.createPlayer(); // create actual player object
@@ -35,6 +35,23 @@
         this.createLaserContainer(); // create laserContainer
         this.createLaser(); // create actual laser object
         
+    }
+
+    p.addButton = function () {
+        var btn, event;
+        btn = new ui.SimpleButton('Main Menu');
+        btn.on('click', this.returnToMainMenu, this);
+
+        //dimensions and postitions of button
+        btn.regX = btn.width / 2;
+        btn.x = canvas.width / 2;
+        btn.y = 30;
+
+        btn.setButton({ upColor: 'FF0000', color: '#FFF', borderColor: '#FFF', overColor: '#900' });
+        this.addChild(btn);
+    }
+    p.returnToMainMenu = function (e) {
+        this.dispatchEvent(game.GameStateEvents.MAIN_MENU);
     }
 
     // Adding Background function

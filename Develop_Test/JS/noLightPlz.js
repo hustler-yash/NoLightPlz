@@ -61,6 +61,7 @@
         // adding the function to scene or library
         // Here, game.GameStateEvents.GAME - GAME is a file.
         scene.on(game.GameStateEvents.GAME, this.onStateEvent, this, false, { state: game.GameStates.GAME });
+        scene.on(game.GameStateEvents.HowToPlay, this.onStateEvent, this, false, { state: game.GameStates.HowToPlay });
 
         //adding scene to stage
         stage.addChild(scene);
@@ -84,7 +85,7 @@
 
         // adding the function to scene or library
         // Here, game.GameStateEvents.GAME - GAME is a file.
-        scene.on(game.GameStateEvents.GAME, this.onStateEvent, this, false, { state: game.GameStates.GAME });
+        scene.on(game.GameStateEvents.MAIN_MENU, this.onStateEvent, this, false, { state: game.GameStates.MAIN_MENU });
 
         //adding scene to stage
         stage.addChild(scene);
@@ -106,6 +107,7 @@
     p.gameStateGame = function () {
         var scene = new game.Game();
         scene.on(game.GameStateEvents.GAME_OVER, this.onStateEvent, this, false, { state: game.GameStates.GAME_OVER });
+        scene.on(game.GameStateEvents.MAIN_MENU, this.onStateEvent, this, false, { state: game.GameStates.MAIN_MENU });
         stage.addChild(scene);
         stage.removeChild(this.currentScene);
         this.currentScene = scene;
