@@ -1,90 +1,88 @@
 ﻿(function () {
 
-    var MakePlayer = function () {
+    function MakePlayer() {
         this.initialize();
     }
     
     // Making the player - Applying the image to object
-     var p = MakePlayer.prototype = new createjs.Shape();
+  //   var p = MakePlayer.prototype = new createjs.Shape();
    // var p = MakePlayer.prototype = new createjs.Sprite();
 
-   // var p = MakePlayer.prototype = new createjs.SpriteSheet(data);
+  //  var p = MakePlayer.prototype = new createjs.SpriteSheet(data);
    // var pig = new Pig(ss);
     //stage.addChild(pig);
 
     //p.count = 0;
 
     //properties of Player
-    p.speed = 0;
-    p.size = 0;
+   // p.speed = 0;
+    //p.size = 0
+
+    var p = MakePlayer.prototype = new createjs.Container();
+
+    var data; //data for spritesheet
 
     p.Shape_initialize = p.initialize;
 
-    MakePlayer.prototype.initialize = function () {
+    p.initialize = function () {
         
        // this.size = size;
-        this.Shape_initialize();
-       // this.drawSprites();
+       // this.Shape_initialize();
+        this.drawSprites();
        // this.alpha = Math.random();
-        this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
-       // this.createPlayer();
-        this.on('tick', this.pulse);
+      //  this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
+        this.createPlayer();
+     //   this.on('tick', this.pulse);
     }
 
 
     p.drawSprites = function () {
-        var data = {
+         data = {
             "images": ["Content/charWalk.png"],
             "frames": [
-              [1, 1, 661, 308, 0, 0, 0],
-              [664, 1, 308, 665, 0, 0, 0],
-              [1331, 1, 308, 668, 0, 0, 0],
-              [1, 311, 308, 671, 0, 0, 0],
-              [1335, 931, 309, 672, 0, 0, 0],
-              [1, 1552, 311, 672, 0, 0, 0],
-              [1349, 1554, 312, 671, 0, 0, 0],
-              [675, 1553, 311, 672, 0, 0, 0],
-              [1349, 1242, 310, 672, 0, 0, 0],
-              [1, 1241, , 309, 672, 0, 0],
-              [675, 1242, 309, 672, 0, 0, 0],
-              [674, 311, 308, 671, 0, 0, 0],
-              [1347, 311, 308, 670, 0, 0, 0],
-              [1, 621, 308, 669, 0, 0, 0],
-              [672, 621, 308, 668, 0, 0, 0],
-              [1342, 621, 308, 661, 0, 0, 0],
-              [1, 931, 308, 666, 0, 0, 0],
-              [669, 931, 308, 664, 0, 0, 0]
+            [0, 0, 81, 167, 0, 0, 0], //1
+            [81, 0, 81, 169, 0, 0, 0],//2
+            [162, 0, 81, 169, 0, 0, 0],//3
+            [243, 0, 81, 168, 0, 0, 0],//4
+            [324, 0, 82, 165, 0, 0, 0],//5
+            [406, 0, 82, 167, 0, 0, 0],//6
+            [488, 0, 81, 169, 0, 0, 0],//7
+            [569, 0, 81, 169, 0, 0, 0],//8
+            [650, 0, 81, 169, 0, 0, 0],//9
+            [731, 0, 81, 168, 0, 0, 0],//10
+            [0, 165, 81, 167, 1, 0, 0],//11
+            [0, 332, 81, 169, 1, 0, 0],//12
+            [0, 501, 81, 170, 1, 0, 0],//13
+            [0, 671, 82, 169, 1, 0, 0],//14
+            [0, 0, 82, 165, 1, 0, 0],//15
+            [0, 840, 82, 168, 1, 0, 0],//16
+            [0, 1008, 81, 169, 1, 0, 0],//17
+            [0, 1177, 81, 169, 1, 0, 0],//18
+            [0, 1346, 81, 169, 1, 0, 0],//19
+            [0, 1515, 81, 168, 1, 0, 0],//20
             ],
             "animations": {
-                "board": [0],
-                "bubble": [1],
-                "chooseCPU1": [2],
-                "chooseCPU2": [3],
-                "chooseCPU3": [4],
-                "cpu1": [5],
-                "cpu2": [6],
-                "cpu3": [7],
-                "frank": [8],
-                "scoreBrick": [9],
-                "stone_0": [10],
-                "stone_1": [11],
-                "stone_2": [12],
-                "stone_3": [13],
-                "window": [14],
-                "windowOn": [15]
+                "bob": [0],
+                "stand": [0, 0, "stand", 8],
+                "stand_h": {
+                    frames: [9],
+                    next: "stand",
+                    frequency: 8
+                }
             }
         }
     }
 
     p.createPlayer = function () {
-        var p = MakePlayer.prototype = new createjs.SpriteSheet(data);
-
+        var spritesheet = new createjs.SpriteSheet(data);
+        var player = MakePlayer.prototype = new createjs.Sprite(spritesheet, 'bob');
+        this.addChild(player);
     }
 
 
-    MakePlayer.prototype.pulse = function () {
-        this.alpha = Math.cos(this.count++ * 0.1) * 0.4 + 0.6;
-    }
+    //MakePlayer.prototype.pulse = function () {
+    //    this.alpha = Math.cos(this.count++ * 0.1) * 0.4 + 0.6;
+    //}
 
     window.MakePlayer = MakePlayer;
 }());

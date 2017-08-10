@@ -56,12 +56,26 @@
 
     // Adding Background function
     p.addBG = function () {
-        //var bg = new createjs.Shape();
-        var bg = new createjs.Bitmap('Content/gameBG.jpg');
-        bg.scaleX = 1.4;
-        bg.scaleY = 1.4;
-       // bg.graphics.beginFill('#92CBD6').drawRect(0, 0, canvas.width, canvas.height);
+        var bg = new createjs.Bitmap('Content/game-background-Level1.jpg');
+        bg.scaleX = 1;
+        bg.scaleY = 1;
         this.addChild(bg);
+
+        var lifeCounts = [];
+        //Adding Related Icons
+        var i;
+        var xMargin = 40;
+        for ( i = 0 ; i < 3 ; i++)
+        {
+            var lifeCounts = new createjs.Bitmap('Content/LifeCounts.png');
+            lifeCounts.scaleX = .3;
+            lifeCounts.scaleY = .3;
+            lifeCounts.x = 960 - xMargin;
+            lifeCounts.y = 610;
+            xMargin = xMargin + 40;
+            this.addChild(lifeCounts);
+        }
+        
     }
 
     // Adding Message function
@@ -85,20 +99,20 @@
         var playerSize = 25;
 
         for (i = 0; i < numPlayers; i++) {
-           // color = '#' + Math.floor(Math.random() * 16777215).toString(16)
-            // orb = new PulsingOrb(color, orbSize);
-
+          
             // Creating object from a seperate file
             // File name is MakePlayer
             player = new MakePlayer();
 
             //After player is created, logic for the game.
-            player.speed = Math.random() * 4;
-          //  orb.size = orbSize;
+            player.speed = 1;
+          
             // Player Object's position
-            player.x = playerSize;
-            player.y = playerSize + (i * playerSize * 2);
+            player.x = 300;
+            player.y = 430;
 
+
+            // click on player
             player.on('click', this.onPlayerClick, this);
 
             // Add controls for the Player
