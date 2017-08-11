@@ -15,6 +15,7 @@
     // two variable for the game
     p.msgTxt = null; // If tnothing shows up, this message will show
     p.playerContainer = null; // container for the player object
+    p.BulbContainer = null;// container for the bulb
     p.transformerContainer = null; // container for the transformer object.
     p.laserContainer = null; // container for the laser object.
 
@@ -30,7 +31,9 @@
 
         this.createTransformerContainer(); // create transformerContainer
         this.createTransformers(); // create actual transformer object
-      
+
+        this.createBulbContainer();// create Bulb Container
+        this.createBulbs();
 
         this.createLaserContainer(); // create laserContainer
         this.createLaser(); // create actual laser object
@@ -120,7 +123,35 @@ var player;
         }// End of for loop
 
     }
-   
+    //Bulb 
+    p.createBulbContainer = function () {
+        this.createBulbContainer = new createjs.Container();
+        this.BulbContainer = new createjs.Container();
+        this.addChild(this.BulbContainer);
+    }
+    var bulb;
+    p.createBulb = function () {
+        var i;
+        // Container for bulb object - bulbs - with s at the end
+        bulbs = this.playerContainer;
+        var numBulbs = 1;
+        var bulbSize = 25;
+
+        for (i = 0; i < numBulbs; i++) {
+            // Creating object from a seperate file
+            // File name is MakePlayer
+           bulb = new MakeBulb();
+
+            //After player is created, logic for the game.
+            bulb.speed = 1;
+
+            // Player Object's position
+            bulb.x = 0;
+            bulb.y = 0;
+
+            bulbs.addChild(bulb);
+        }// End of for loop
+    }
 //Transformer
 
     // Transformer container and object

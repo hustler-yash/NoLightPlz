@@ -1,13 +1,13 @@
 ﻿(function () {
 
-    function MakeTransformer() {
+    function MakeBulb() {
         this.initialize();
     }
 
-    var p = MakeTransformer.prototype = new createjs.Container();
+    var p = MakeBulb.prototype = new createjs.Container();
   
-    var transformer;
-    var transformer_speed = 10;
+    var bulb;
+    var bulb_speed = 10;
 
     // Constants
     const STAGE_WIDTH = 1000;
@@ -23,7 +23,7 @@
        // this.drawSprites();
         // this.alpha = Math.random();
         //  this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
-        this.createTransformer();
+        this.createBulb();
         createjs.Ticker.addEventListener("tick", handleTick);
         createjs.Ticker.setInterval(50);
        // this.run();
@@ -37,11 +37,11 @@
         // Actions carried out each tick (aka frame)
         if (!event.paused) {
             // Actions carried out when the Ticker is not paused.
-            if (transformer.x < -120) {
-                transformer.x = STAGE_WIDTH ;
+            if (bulb.x < -120) {
+                bulb.x = STAGE_WIDTH ;
             } else {
-                transformer.x = transformer.x - transformer_speed;
-                //transformer.update();
+                bulb.x = bulb.x - bulb_speed;
+                //bulb.update();
             }
         }
     }
@@ -50,24 +50,24 @@
     p.update = function () {
         var i=0;
         do{
-            if (transformer.x < 0) {
-                transformer.x = STAGE_WIDTH;
+            if (bulb.x < 0) {
+                bulb.x = STAGE_WIDTH;
             } else {
-                transformer.x = transformer.x - transformer_speed;
-                //transformer.update();
+                bulb.x = bulb.x - bulb_speed;
+                //bulb.update();
             }
             i++
         }while(i<=10);
     }
 
-//Transformer
-    // Create Transformer
-    var transformer;
-    p.createTransformer = function () {
-        transformer = new createjs.Bitmap('Content/transformer.png');
-        transformer.scaleX = .6;
-        transformer.scaleY = .6;
-        this.addChild(transformer);
+//bulb
+    // Create bulb
+    var bulb;
+    p.createBulb = function () {
+        bulb = new createjs.Bitmap('Content/bulb.png');
+        bulb.scaleX = .6;
+        bulb.scaleY = .6;
+        this.addChild(bulb);
     }
 
     p.run = function () {
@@ -76,5 +76,5 @@
         //this.checkGame();
     }
 
-    window.MakeTransformer = MakeTransformer;
+    window.MakeBulb = MakeBulb;
 }());
