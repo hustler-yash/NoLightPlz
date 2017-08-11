@@ -5,6 +5,10 @@
         this.initialize();
     }
 
+
+
+
+
     // assigning long name to p
     var p = noLightPlz.prototype;
 

@@ -26,7 +26,7 @@
 
         this.createPlayerContainer(); // create playerContainer
         this.createPlayer(); // create actual player object
-        this.createPlayerControls(); // create player controls
+       // this.createPlayerControls(); // create player controls
 
         this.createTransformerContainer(); // create transformerContainer
         this.createTransformers(); // create actual transformer object
@@ -54,6 +54,7 @@
         this.dispatchEvent(game.GameStateEvents.MAIN_MENU);
     }
 
+//BackGround
     // Adding Background function
     p.addBG = function () {
         var bg = new createjs.Bitmap('Content/game-background-Level1.jpg');
@@ -83,23 +84,26 @@
         this.msgTxt = new createjs.Text("HELLO", '24px Arial', '#FFF');
         this.addChild(this.msgTxt);
     }
-     
+  
+// Player
     // Create player container
     p.createPlayerContainer = function () {
         this.playerContainer = new createjs.Container();
         this.addChild(this.playerContainer);
     }
 
+//Global Variable for player
+var player;
+    
     // Create player object
     p.createPlayer = function () {
-         var i, player, color;
+         var i, color;
         // Container for player object - players - with s at the end
         var players = this.playerContainer;
         var numPlayers = 1;
         var playerSize = 25;
 
         for (i = 0; i < numPlayers; i++) {
-          
             // Creating object from a seperate file
             // File name is MakePlayer
             player = new MakePlayer();
@@ -108,30 +112,31 @@
             player.speed = 1;
           
             // Player Object's position
-            player.x = 300;
+            player.x = 10;
             player.y = 430;
 
 
             // click on player
-            player.on('click', this.onPlayerClick, this);
+         ///   player.on('click', this.onPlayerClick, this);
 
             // Add controls for the Player
             // Left Key, Right Key , Space
-            player.on('', this.onPlayerClick, this);
+         //   player.on('', this.onPlayerClick, this);
             players.addChild(player);
         }// End of for loop
 
     }
     // Set controls for the player
-    p.createPlayerControls = function () {
-        
-    }
+    //p.createPlayerControls = function () {
+    //    player.on('onkeydown', this.handleKeyDown, this);
+    //    player.on('onkeyup', this.handleKeyUp, this);
+    //}
 
     // This is not needed.
-    p.onPlayerClick = function (e) {
-        // Logic for Clicking on Player
-        this.orbContainer.removeChild(e.target);
-    }
+    //p.onPlayerClick = function (e) {
+    //    // Logic for Clicking on Player
+    //    this.orbContainer.removeChild(e.target);
+    //}
 
     // Transformer container and object
     p.createTransformerContainer = function () {
