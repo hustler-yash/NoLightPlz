@@ -116,34 +116,42 @@ var player;
             player.y = 430;
 
 
-            // click on player
-         ///   player.on('click', this.onPlayerClick, this);
-
-            // Add controls for the Player
-            // Left Key, Right Key , Space
-         //   player.on('', this.onPlayerClick, this);
             players.addChild(player);
         }// End of for loop
 
     }
-    // Set controls for the player
-    //p.createPlayerControls = function () {
-    //    player.on('onkeydown', this.handleKeyDown, this);
-    //    player.on('onkeyup', this.handleKeyUp, this);
-    //}
-
-    // This is not needed.
-    //p.onPlayerClick = function (e) {
-    //    // Logic for Clicking on Player
-    //    this.orbContainer.removeChild(e.target);
-    //}
+   
+//Transformer
 
     // Transformer container and object
     p.createTransformerContainer = function () {
-
+        this.transformerContainer = new createjs.Container();
+        this.addChild(this.transformerContainer);
     }
-
+//Global Variable for Transformer
+var transformer;
+    // Create Transformer
     p.createTransformers = function () {
+        var i;
+        // Container for transformers object - transformers - with s at the end
+        transformers = this.playerContainer;
+        var numTransformers = 1;
+        var transdormerSize = 25;
+
+        for (i = 0; i < numTransformers; i++) {
+            // Creating object from a seperate file
+            // File name is MakePlayer
+            transformer = new MakeTransformer();
+
+            //After player is created, logic for the game.
+            transformer.speed = 1;
+
+            // Player Object's position
+            transformer.x = 0;
+            transformer.y = 0;
+
+            transformers.addChild(transformer);
+        }// End of for loop
 
     }
 
