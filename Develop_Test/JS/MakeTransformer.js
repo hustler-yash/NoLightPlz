@@ -38,7 +38,7 @@
         if (!event.paused) {
             // Actions carried out when the Ticker is not paused.
             if (transformer.x < -120) {
-                transformer.x = STAGE_WIDTH - 120;
+                transformer.x = STAGE_WIDTH ;
             } else {
                 transformer.x = transformer.x - transformer_speed;
                 //transformer.update();

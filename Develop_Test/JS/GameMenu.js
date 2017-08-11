@@ -10,14 +10,13 @@
 
     p.Container_initialize = p.initialize;
 
-    p.titleTxt = null;
+   
     p.count = 0;
 
     p.initialize = function () {
         this.Container_initialize();
         this.addBG();
-      //  this.addTitle();
-      //  this.addOrbs();
+        this.addBGSound();
         this.addButton();
         this.addControlsButton();
     }
@@ -29,29 +28,11 @@
        // bg.graphics.beginFill('0').drawRect(0, 0, canvas.width, canvas.height);
         this.addChild(bg);
     }
-    p.addTitle = function () {
-        this.titleTxt = new createjs.Text("No Light Plz ..", '40px Arial', '#fff');
-        this.titleTxt.x = canvas.width / 2;
-        this.titleTxt.y = 200;
-        this.titleTxt.textAlign = 'center';
-        this.addChild(this.titleTxt);
+    p.addBGSound = function () {
+        var s = createjs.Sound.play("Content/audio/cricketBackground.mp3", createjs.Sound.INTERRUPT_NONE, 0, 10, -1, .125, 0);
+        //this.addChild(s);
     }
-
-    //p.addOrbs = function () {
-    //    var i, orb;
-    //    var orbContainer = new createjs.Container();
-    //    var numOrbs = 5;
-    //    var orbSize = 20;
-    //    var orbPadding = 10;
-    //    var orbsPosition = 300;
-    //    for (i = 0; i < numOrbs; i++) {
-    //        orb = new PulsingOrb('#FFF', orbSize);
-    //        orb.x = i * ((orbSize * 2) + orbPadding);
-    //        orbContainer.addChild(orb);
-    //    }
-    //    orbContainer.x = orbContainer.y = orbsPosition;
-    //    this.addChild(orbContainer);
-    //}
+    
 
     // Start Game Button 
     p.addButton = function () {
