@@ -13,7 +13,7 @@
     const SPACE_KEY = 32;
     const STAGE_WIDTH = 1000;
     const STAGE_HEIGHT = 800;
-    
+
 
     var p = MakePlayer.prototype = new createjs.Container();
     var data; //data for spritesheet
@@ -23,27 +23,27 @@
     var bullet_speed = 10;
     var numBullets;
     var numBulletsLeft = numBullets;
-    
+
 
     p.Shape_initialize = p.initialize;
 
     p.initialize = function () {
-        
-      
+
+
         this.drawSprites();
-       
-      //  this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
+
+        //  this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
         this.createPlayer();
         this.createPlayerControls();
 
         this.createBullet(numBullets);
-     
+
     }
 
 
     p.drawSprites = function () {
-         data = {
-             "images": ["Content/charWalk.png", "Content/charWalk._hrz.png"],
+        data = {
+            "images": ["Content/charWalk.png", "Content/charWalk._hrz.png"],
             "frames": [
             // For the right side
 
@@ -74,31 +74,32 @@
             "animations": {
                 "bob": [0],
                 "goRight": {
-                    frames: [1,2,3,4,5,6,7,8,9],
+                    frames: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                     next: "bob",
                     frequency: -40,
                 },
                 "goLeft": {
-                    frames: [10,11,12,13,14,15,16,17,18,190],
+                    frames: [10, 11, 12, 13, 14, 15, 16, 17, 18, 190],
                     next: "bob",
                     frequency: -40,
                 }
             }
         }
     }
+
     // Create Player
     p.createPlayer = function () {
         var spritesheet = new createjs.SpriteSheet(data);
         player = MakePlayer.prototype = new createjs.Sprite(spritesheet, 'bob');
         this.addChild(player);
     }
-    
+
     // Setting Player Controls
     p.createPlayerControls = function () {
-    //    player.addEventListener("onkeydown", this.handleKeyDown);
-    //    player.addEventListener("onkeyup", this.handleKeyUp);
+        //    player.addEventListener("onkeydown", this.handleKeyDown);
+        //    player.addEventListener("onkeyup", this.handleKeyUp);
         window.onkeydown = this.handleKeyDown;
-        window.onkeyup =   this.handleKeyUp;
+        window.onkeyup = this.handleKeyUp;
     }
 
     // Create Bullet
@@ -111,28 +112,23 @@
             bullet[i].graphics.drawCircle(0, 0, 5);
             bullet[i].x = 70;
             bullet[i].y = 32;
+            bullet[i].visible = false;
             this.addChild(bullet[i]);
         }
-        
 
-        //createjs.graphics.beginFill("#fgf").drawCircle(0, 0, 10);
-        //bullet.scaleX = 1;
-        //bullet.scaleY = 1;
-        //this.addChild(bullet);
     }
 
     // Handling Key DOWN event
     p.handleKeyDown = function (e) {
-       e = !e ?window.event : e;
+        e = !e ? window.event : e;
         switch (e.keyCode) {
 
             case A_KEY_DOWN:
             case ARROW_KEY_LEFT:
                 leftKeyDown = true;
                 a_KeyDown = true;
-                
-                if (player.x > 0)
-                {
+
+                if (player.x > 0) {
                     player.gotoAndPlay('goLeft');
                     player.x = player.x - player_speed;
 
@@ -140,23 +136,18 @@
                         bullet[i].visible = false;
                         bullet[i].x = bullet[i].x - player_speed;
                     }
-                    
-                  
                 }
-                
 
-                //createjs.Tween.get(player).to({ x: -40 }, 1000);
-                
                 break;
 
             case D_KEY_DOWN:
             case ARROW_KEY_RIGHT:
                 rightKeyDown = true;
                 d_KeyDown = true;
-                
+
                 if (player.x < STAGE_WIDTH - 100) {
 
-                    
+
                     player.gotoAndPlay('goRight');
                     player.x = player.x + player_speed;
 
@@ -164,32 +155,27 @@
                         bullet[i].visible = true;
                         bullet[i].x = bullet[i].x + player_speed;
                     }
-                    
+                }
 
-                    
-                } 
-                       
                 break;
 
             case SPACE_KEY:
-                //for (i = 0; i < numBullets ; i++) {
-                //  bullet[i].visible = true;
-                    numBulletsLeft--; // Reducing count for bullets left
-                   // fireBullet();
-                    createjs.Ticker.addEventListener("tick", fireBullet);
-                    createjs.Ticker.interval = 50;
-                    console.log("fireBullet done..");
+               
+                if (j >= numBullets) {
+                    return;
+                }
 
+                createjs.Ticker.addEventListener("tick", fireBullet);
+                createjs.Ticker.interval = 50;
+                console.log("fireBullet done..");
 
-                   // bullet[i].x = bullet[i].x + player_speed;
-                    //bullet[i].y = bullet[i].y - player_speed;
-               // }
+                
                 break;
-           
+
         }
     }
 
-    p.handleKeyUp =function(e) {
+    p.handleKeyUp = function (e) {
         e = !e ? window.event : e;
         switch (e.keyCode) {
             case ARROW_KEY_LEFT:
@@ -200,62 +186,23 @@
                 rightKeyDown = false;
                 d_KeyDown = false;
                 break;
-            //case SPACE_KEY:
-            //    if (gameRunning) {
-            //        createjs.Ticker.setPaused(createjs.Ticker.getPaused() ? false : true);
-            //    }
-            //    else {
-            //        resetGame();
-            //    }
-            //    break;
         }
     }
 
     var j = 0;
     function fireBullet(event) {
-        // Actions carried out each tick (aka frame)
-       // if (!event.paused) {
-            // Actions carried out when the Ticker is not paused.
-            // for (i = numBulletsLeft; i > 0 ; i--) {
-           // if (bullet[j].y > 0) {
-                console.log("fireBullet ..");
 
-                bullet[j].visible = true;
-                // for (i = 0; i < 5; i++) {
-                //createjs.Tween.get(bullet[j],{loop: -1, override:false})
-                //            .to({ x: 20, y: 300, alpha: 0.1 }, 1000, createjs.Ease.get(1));
-                  bullet[j].x = bullet[j].x + bullet_speed;
-                  bullet[j].y = bullet[j].y - bullet_speed;
-                  createjs.Ticker.paused = true;
-                  j = 1;
-                 // j = 2;
-                  //bullet[j].x = bullet[j].x + bullet_speed ;
-                  //bullet[j].y = bullet[j].y - bullet_speed;
-                  //stage.update();
-                  //event.remove();
+        bullet[j].visible = true;
+        bullet[j].x = bullet[j].x + bullet_speed;
+        bullet[j].y = bullet[j].y - bullet_speed;
 
-          //  }
+        if (bullet[j].y < -468) {
+            createjs.Ticker.removeEventListener("tick", fireBullet);
+            bullet[j].visible = false;
+            j++;
 
-       // }
-
-
-           // } //else {
-            //   //this.removeChild(bullet[0]);
-            //}
-              // j += 1;
-       // }
-
-        //var isBulletGone = 0;
-        //setTimeout(function () {
-        //    console.log("fireBullet after 3000 ..");
-        //    isBulletGone = 1;
-        //    event.paused = true;
-        //}, 3000);
-
-        
+        }
     }
-    
-    
 
     window.MakePlayer = MakePlayer;
 }());

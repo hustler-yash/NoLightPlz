@@ -6,9 +6,10 @@
         MAIN_MENU: 0,
         HowToPlay: 1,
         RUN_SCENE:2,
-        GAME:10,
+        GAME: 10,
+        GAMETWO: 20,
         SCORE_SCREEN:11,
-        GAME_OVER:20
+        GAME_OVER:50
     }
 
     var GameStateEvents = {
@@ -16,7 +17,8 @@
         HowToPlay: 'how to play',
         GAME_OVER:'game over event',
         MAIN_MENU_SELECT:'game menu select event',
-        GAME:'game event',
+        GAME: 'game event',
+        GAMETWO: 'gametwo event',
         SCORE_SCREEN:'score screen event'
     }
 

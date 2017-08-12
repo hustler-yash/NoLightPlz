@@ -1,13 +1,13 @@
-(function (window) {
+﻿(function (window) {
 
     window.game = window.game || {}
 
-    function Game() {
+    function Game2() {
         this.initialize();
     }
 
     // Assigning long name to a variable
-    var p = Game.prototype = new createjs.Container();
+    var p = Game2.prototype = new createjs.Container();
 
     // defining the method
     p.Container_initialize = p.initialize;
@@ -22,21 +22,22 @@
     p.initialize = function () {
         this.Container_initialize();
         this.addBG(); // Add backkground
+        this.addMessages(); // Add Message
         this.addButton();
 
         this.createPlayerContainer(); // create playerContainer
         this.createPlayer(); // create actual player object
-       // this.createPlayerControls(); // create player controls
+        // this.createPlayerControls(); // create player controls
 
-        this.createTransformerContainer(); // create transformerContainer
-        this.createTransformers(); // create actual transformer object
+     //   this.createTransformerContainer(); // create transformerContainer
+     //   this.createTransformers(); // create actual transformer object
 
-        this.createBulbContainer();// create Bulb Container
-        this.createBulbs();
+     //   this.createBulbContainer();// create Bulb Container
+     //   this.createBulbs();
 
-  //      this.createBulletContainer(); // create laserContainer
-  //      this.createBullet(); // create actual laser object
-        
+        //      this.createBulletContainer(); // create laserContainer
+        //      this.createBullet(); // create actual laser object
+
     }
 
     p.addButton = function () {
@@ -47,29 +48,34 @@
         //dimensions and postitions of button
         btn.regX = btn.width / 2;
         btn.x = canvas.width / 2;
-        btn.y = 630;
+        btn.y = 30;
 
         btn.setButton({ upColor: 'FF0000', color: '#FFF', borderColor: '#FFF', overColor: '#900' });
         this.addChild(btn);
     }
     p.returnToMainMenu = function (e) {
-        this.dispatchEvent(game.GameStateEvents.GAMETWO);
+        this.dispatchEvent(game.GameStateEvents.MAIN_MENU);
     }
 
-//BackGround
+    //BackGround
     // Adding Background function
     p.addBG = function () {
-        var bg = new createjs.Bitmap('Content/game-level1-img.jpg');
+        var bg = new createjs.Bitmap('Content/game-level2-background.jpg');
         bg.scaleX = 1;
         bg.scaleY = 1;
         this.addChild(bg);
+
+        // Adding Front Lawn
+        var bgLawn = new createjs.Bitmap('Content/game-level2-frontLawn.png');
+        bg.scaleX = 1;
+        bg.scaleY = 1;
+        this.addChild(bgLawn);
 
         var lifeCounts = [];
         //Adding Related Icons
         var i;
         var xMargin = 40;
-        for ( i = 0 ; i < 3 ; i++)
-        {
+        for (i = 0 ; i < 3 ; i++) {
             var lifeCounts = new createjs.Bitmap('Content/LifeCounts.png');
             lifeCounts.scaleX = .3;
             lifeCounts.scaleY = .3;
@@ -78,24 +84,28 @@
             xMargin = xMargin + 40;
             this.addChild(lifeCounts);
         }
-        
+
     }
 
-   
-  
-// Player
+    // Adding Message function
+    p.addMessages = function () {
+        this.msgTxt = new createjs.Text("HELLO2", '24px Arial', '#FFF');
+        this.addChild(this.msgTxt);
+    }
+
+    // Player
     // Create player container
     p.createPlayerContainer = function () {
         this.playerContainer = new createjs.Container();
         this.addChild(this.playerContainer);
     }
 
-//Global Variable for player
-var player;
-    
+    //Global Variable for player
+    var player;
+
     // Create player object
     p.createPlayer = function () {
-         var i, color;
+        var i, color;
         // Container for player object - players - with s at the end
         var players = this.playerContainer;
         var numPlayers = 1;
@@ -109,7 +119,7 @@ var player;
 
             //After player is created, logic for the game.
             player.speed = 1;
-          
+
             // Player Object's position
             player.x = 10;
             player.y = 450;
@@ -121,11 +131,11 @@ var player;
     }
     //Bulb 
     p.createBulbContainer = function () {
-      //  this.createBulbContainer = new createjs.Container();
+        //  this.createBulbContainer = new createjs.Container();
         this.bulbContainer = new createjs.Container();
         this.addChild(this.bulbContainer);
     }
-var bulb;
+    var bulb;
     p.createBulbs = function () {
         var i;
         // Container for bulb object - bulbs - with s at the end
@@ -136,7 +146,7 @@ var bulb;
         for (i = 0; i < numBulbs; i++) {
             // Creating object from a seperate file
             // File name is MakePlayer
-           bulb = new MakeBulb();
+            bulb = new MakeBulb();
 
             //After player is created, logic for the game.
             bulb.speed = 1;
@@ -148,15 +158,15 @@ var bulb;
             bulbs.addChild(bulb);
         }// End of for loop
     }
-//Transformer
+    //Transformer
 
     // Transformer container and object
     p.createTransformerContainer = function () {
         this.transformerContainer = new createjs.Container();
         this.addChild(this.transformerContainer);
     }
-//Global Variable for Transformer
-var transformer;
+    //Global Variable for Transformer
+    var transformer;
     // Create Transformer
     p.createTransformers = function () {
         var i;
@@ -182,43 +192,43 @@ var transformer;
 
     }
 
-//Bullet
+    // Bullet
     // Laser container and object
     p.createBulletContainer = function () {
         this.bulletContainer = new createjs.Container();
         this.addChild(this.bulletContainer);
     }
-// Global Variable for Bullet
-var bullet;
+    // Global Variable for Bullet
+    var bullet;
     p.createBullet = function () {
-       
-            var i;
-            // Container for transformers object - transformers - with s at the end
-            var bullets = this.bulletContainer;
-            var numBullets = 3; // vary for every levels
-            var bulletSize = 25;
 
-            for (i = 0; i < numBullets; i++) {
-                // Creating object from a seperate file
-                // File name is MakePlayer
-                bullet = new MakeBullet(numBullets);
-               // this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
-                //After player is created, logic for the game.
-                bullet.speed = 1;
+        var i;
+        // Container for transformers object - transformers - with s at the end
+        var bullets = this.bulletContainer;
+        var numBullets = 3; // vary for every levels
+        var bulletSize = 25;
 
-                // Player Object's position
-                bullet.x = 100;
-                bullet.y = 300;
+        for (i = 0; i < numBullets; i++) {
+            // Creating object from a seperate file
+            // File name is MakePlayer
+            bullet = new MakeBullet(numBullets);
+            // this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
+            //After player is created, logic for the game.
+            bullet.speed = 1;
 
-                bullets.addChild(bullet[i]);
-            }// End of for loop
+            // Player Object's position
+            bullet.x = 100;
+            bullet.y = 300;
+
+            bullets.addChild(bullet[i]);
+        }// End of for loop
     }
 
 
 
 
 
-// Game Related Things
+    // Game2 Related Things
     p.update = function () {
         //var i, orb, nextX;
         //var len = this.orbContainer.getNumChildren();
@@ -253,9 +263,9 @@ var bullet;
     p.run = function () {
         this.update();
         this.render();
-        this.checkGame();   
+        this.checkGame();
     }
 
-    window.game.Game = Game;
+    window.game.Game2 = Game2;
 
 }(window));
