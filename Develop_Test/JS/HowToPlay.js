@@ -42,7 +42,7 @@
         //dimensions and postitions of button
         btn.regX = btn.width / 2 ;
         btn.x = canvas.width / 2;
-        btn.y = 30;
+        btn.y = 630;
 
         btn.setButton({ upColor: 'FF0000', color: '#FFF', borderColor: '#FFF', overColor: '#900' });
         this.addChild(btn);

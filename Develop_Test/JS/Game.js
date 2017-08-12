@@ -34,8 +34,6 @@
         this.createBulbContainer();// create Bulb Container
         this.createBulbs();
 
-  //      this.createBulletContainer(); // create laserContainer
-  //      this.createBullet(); // create actual laser object
         
     }
 
@@ -53,7 +51,7 @@
         this.addChild(btn);
     }
     p.returnToMainMenu = function (e) {
-        this.dispatchEvent(game.GameStateEvents.GAMETWO);
+        this.dispatchEvent(game.GameStateEvents.MAIN_MENU);
     }
 
 //BackGround
@@ -180,38 +178,6 @@ var transformer;
             transformers.addChild(transformer);
         }// End of for loop
 
-    }
-
-//Bullet
-    // Laser container and object
-    p.createBulletContainer = function () {
-        this.bulletContainer = new createjs.Container();
-        this.addChild(this.bulletContainer);
-    }
-// Global Variable for Bullet
-var bullet;
-    p.createBullet = function () {
-       
-            var i;
-            // Container for transformers object - transformers - with s at the end
-            var bullets = this.bulletContainer;
-            var numBullets = 3; // vary for every levels
-            var bulletSize = 25;
-
-            for (i = 0; i < numBullets; i++) {
-                // Creating object from a seperate file
-                // File name is MakePlayer
-                bullet = new MakeBullet(numBullets);
-               // this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
-                //After player is created, logic for the game.
-                bullet.speed = 1;
-
-                // Player Object's position
-                bullet.x = 100;
-                bullet.y = 300;
-
-                bullets.addChild(bullet[i]);
-            }// End of for loop
     }
 
 

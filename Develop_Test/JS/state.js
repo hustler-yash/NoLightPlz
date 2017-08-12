@@ -18,7 +18,7 @@
         GAME_OVER:'game over event',
         MAIN_MENU_SELECT:'game menu select event',
         GAME: 'game event',
-        GAMETWO: 'gametwo event',
+        GAMETWO: 'game two event',
         SCORE_SCREEN:'score screen event'
     }
 

@@ -152,7 +152,7 @@
                     player.x = player.x + player_speed;
 
                     for (i = 0; i < numBullets ; i++) {
-                        bullet[i].visible = true;
+                     //   bullet[i].visible = true;
                         bullet[i].x = bullet[i].x + player_speed;
                     }
                 }

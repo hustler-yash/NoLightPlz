@@ -18,6 +18,7 @@
         this.addBG();
         this.addBGSound();
         this.addButton();
+        this.addButton2();
         this.addControlsButton();
     }
     p.addBG = function () {
@@ -67,6 +68,19 @@
         btn.setButton({ upColor: 'FF0000', color: '#FFF', borderColor: '#FFF', overColor: '#900' });
         this.addChild(btn);
     }
+    p.addButton2 = function () {
+        var btn, event;
+        btn = new ui.SimpleButton('Go to Level-2');
+        btn.on('click', this.goToLevel2, this);
+
+        //dimensions and postitions of button
+        btn.regX = btn.width / 2;
+        btn.x = canvas.width / 2;
+        btn.y = 620;
+
+        btn.setButton({ upColor: 'FF0000', color: '#FFF', borderColor: '#FFF', overColor: '#900' });
+        this.addChild(btn);
+    }
 
     p.playGame = function (e) {
       //  p.stopBGsound();
@@ -76,6 +90,11 @@
     p.howToPlay = function (e) {
      //   p.stopBGsound();
         this.dispatchEvent(game.GameStateEvents.HowToPlay);
+    }
+
+    p.goToLevel2 = function (e) {
+        //   p.stopBGsound();
+        this.dispatchEvent(game.GameStateEvents.GAMETWO);
     }
 
     //p.run = function () {

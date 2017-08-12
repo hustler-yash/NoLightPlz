@@ -22,22 +22,10 @@
     p.initialize = function () {
         this.Container_initialize();
         this.addBG(); // Add backkground
-        this.addMessages(); // Add Message
-        this.addButton();
-
         this.createPlayerContainer(); // create playerContainer
         this.createPlayer(); // create actual player object
-        // this.createPlayerControls(); // create player controls
-
-     //   this.createTransformerContainer(); // create transformerContainer
-     //   this.createTransformers(); // create actual transformer object
-
-     //   this.createBulbContainer();// create Bulb Container
-     //   this.createBulbs();
-
-        //      this.createBulletContainer(); // create laserContainer
-        //      this.createBullet(); // create actual laser object
-
+        this.addFrontLawn();
+        this.addButton();
     }
 
     p.addButton = function () {
@@ -48,7 +36,7 @@
         //dimensions and postitions of button
         btn.regX = btn.width / 2;
         btn.x = canvas.width / 2;
-        btn.y = 30;
+        btn.y = 630;
 
         btn.setButton({ upColor: 'FF0000', color: '#FFF', borderColor: '#FFF', overColor: '#900' });
         this.addChild(btn);
@@ -65,32 +53,6 @@
         bg.scaleY = 1;
         this.addChild(bg);
 
-        // Adding Front Lawn
-        var bgLawn = new createjs.Bitmap('Content/game-level2-frontLawn.png');
-        bg.scaleX = 1;
-        bg.scaleY = 1;
-        this.addChild(bgLawn);
-
-        var lifeCounts = [];
-        //Adding Related Icons
-        var i;
-        var xMargin = 40;
-        for (i = 0 ; i < 3 ; i++) {
-            var lifeCounts = new createjs.Bitmap('Content/LifeCounts.png');
-            lifeCounts.scaleX = .3;
-            lifeCounts.scaleY = .3;
-            lifeCounts.x = 960 - xMargin;
-            lifeCounts.y = 630;
-            xMargin = xMargin + 40;
-            this.addChild(lifeCounts);
-        }
-
-    }
-
-    // Adding Message function
-    p.addMessages = function () {
-        this.msgTxt = new createjs.Text("HELLO2", '24px Arial', '#FFF');
-        this.addChild(this.msgTxt);
     }
 
     // Player
@@ -129,104 +91,28 @@
         }// End of for loop
 
     }
-    //Bulb 
-    p.createBulbContainer = function () {
-        //  this.createBulbContainer = new createjs.Container();
-        this.bulbContainer = new createjs.Container();
-        this.addChild(this.bulbContainer);
-    }
-    var bulb;
-    p.createBulbs = function () {
+   
+    p.addFrontLawn = function () {
+        // Adding Front Lawn
+        var bgLawn = new createjs.Bitmap('Content/game-level2-frontLawn.png');
+        bgLawn.scaleX = 1;
+        bgLawn.scaleY = 1;
+        this.addChild(bgLawn);
+
+        var lifeCounts = [];
+        //Adding Related Icons
         var i;
-        // Container for bulb object - bulbs - with s at the end
-        var bulbs = this.bulbContainer;
-        var numBulbs = 1;
-        var bulbSize = 25;
-
-        for (i = 0; i < numBulbs; i++) {
-            // Creating object from a seperate file
-            // File name is MakePlayer
-            bulb = new MakeBulb();
-
-            //After player is created, logic for the game.
-            bulb.speed = 1;
-
-            // Player Object's position
-            bulb.x = -20;
-            bulb.y = -20;
-
-            bulbs.addChild(bulb);
-        }// End of for loop
+        var xMargin = 40;
+        for (i = 0 ; i < 3 ; i++) {
+            var lifeCounts = new createjs.Bitmap('Content/LifeCounts.png');
+            lifeCounts.scaleX = .3;
+            lifeCounts.scaleY = .3;
+            lifeCounts.x = 960 - xMargin;
+            lifeCounts.y = 630;
+            xMargin = xMargin + 40;
+            this.addChild(lifeCounts);
+        }
     }
-    //Transformer
-
-    // Transformer container and object
-    p.createTransformerContainer = function () {
-        this.transformerContainer = new createjs.Container();
-        this.addChild(this.transformerContainer);
-    }
-    //Global Variable for Transformer
-    var transformer;
-    // Create Transformer
-    p.createTransformers = function () {
-        var i;
-        // Container for transformers object - transformers - with s at the end
-        var transformers = this.transformerContainer;
-        var numTransformers = 1;
-        var transdormerSize = 25;
-
-        for (i = 0; i < numTransformers; i++) {
-            // Creating object from a seperate file
-            // File name is MakePlayer
-            transformer = new MakeTransformer();
-
-            //After player is created, logic for the game.
-            transformer.speed = 1;
-
-            // Player Object's position
-            transformer.x = 0;
-            transformer.y = 0;
-
-            transformers.addChild(transformer);
-        }// End of for loop
-
-    }
-
-    // Bullet
-    // Laser container and object
-    p.createBulletContainer = function () {
-        this.bulletContainer = new createjs.Container();
-        this.addChild(this.bulletContainer);
-    }
-    // Global Variable for Bullet
-    var bullet;
-    p.createBullet = function () {
-
-        var i;
-        // Container for transformers object - transformers - with s at the end
-        var bullets = this.bulletContainer;
-        var numBullets = 3; // vary for every levels
-        var bulletSize = 25;
-
-        for (i = 0; i < numBullets; i++) {
-            // Creating object from a seperate file
-            // File name is MakePlayer
-            bullet = new MakeBullet(numBullets);
-            // this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
-            //After player is created, logic for the game.
-            bullet.speed = 1;
-
-            // Player Object's position
-            bullet.x = 100;
-            bullet.y = 300;
-
-            bullets.addChild(bullet[i]);
-        }// End of for loop
-    }
-
-
-
-
 
     // Game2 Related Things
     p.update = function () {
