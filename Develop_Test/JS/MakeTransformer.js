@@ -14,22 +14,10 @@
     const STAGE_HEIGHT = 700;
 
 
-   
-
     p.initialize = function () {
-
-        // this.size = size;
-        // this.Shape_initialize();
-       // this.drawSprites();
-        // this.alpha = Math.random();
-        //  this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
         this.createTransformer();
         createjs.Ticker.addEventListener("tick", handleTick);
         createjs.Ticker.setInterval(50);
-       // this.run();
-       // this.on('tick', this.pulse);
-
-        //   this.on('tick', this.pulse);
     }
 
     
@@ -46,20 +34,6 @@
         }
     }
 
-
-    p.update = function () {
-        var i=0;
-        do{
-            if (transformer.x < 0) {
-                transformer.x = STAGE_WIDTH;
-            } else {
-                transformer.x = transformer.x - transformer_speed;
-                //transformer.update();
-            }
-            i++
-        }while(i<=10);
-    }
-
 //Transformer
     // Create Transformer
     var transformer;
@@ -68,12 +42,6 @@
         transformer.scaleX = .6;
         transformer.scaleY = .6;
         this.addChild(transformer);
-    }
-
-    p.run = function () {
-        this.update();
-        //this.render();
-        //this.checkGame();
     }
 
     window.MakeTransformer = MakeTransformer;

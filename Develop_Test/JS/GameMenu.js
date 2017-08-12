@@ -28,18 +28,24 @@
        // bg.graphics.beginFill('0').drawRect(0, 0, canvas.width, canvas.height);
         this.addChild(bg);
     }
+    //assetPath = "./";
+    //var sounds
+    //var s = ;
     p.addBGSound = function () {
-        var s = createjs.Sound.play("Content/audio/cricketBackground.mp3", createjs.Sound.INTERRUPT_NONE, 0, 10, -1, .125, 0);
+        s = createjs.Sound.play("Content/audio/cricketBackground.mp3", createjs.Sound.INTERRUPT_NONE, 0, 10, -1, .125, 0);
         //this.addChild(s);
     }
-    
+
+    p.stopBGsound = function () {
+        s.stop();
+      //  createjs.Sound.removeSounds(s);
+    }
 
     // Start Game Button 
     p.addButton = function () {
         var btn, event;
         btn = new ui.SimpleButton('Play Game');
         btn.on('click', this.playGame, this);
-
         //dimensions and postitions of button
         btn.regX = btn.width / 2 + 200;
         btn.x = canvas.width / 2;
@@ -65,10 +71,12 @@
     }
 
     p.playGame = function (e) {
+      //  p.stopBGsound();
         this.dispatchEvent(game.GameStateEvents.GAME);
     }
 
     p.howToPlay = function (e) {
+     //   p.stopBGsound();
         this.dispatchEvent(game.GameStateEvents.HowToPlay);
     }
 

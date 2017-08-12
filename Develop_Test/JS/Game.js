@@ -15,9 +15,9 @@
     // two variable for the game
     p.msgTxt = null; // If tnothing shows up, this message will show
     p.playerContainer = null; // container for the player object
-    p.BulbContainer = null;// container for the bulb
+    p.bulbContainer = null;// container for the bulb
     p.transformerContainer = null; // container for the transformer object.
-    p.laserContainer = null; // container for the laser object.
+    p.bulletContainer = null; // container for the laser object.
 
     p.initialize = function () {
         this.Container_initialize();
@@ -35,8 +35,8 @@
         this.createBulbContainer();// create Bulb Container
         this.createBulbs();
 
-        this.createLaserContainer(); // create laserContainer
-        this.createLaser(); // create actual laser object
+  //      this.createBulletContainer(); // create laserContainer
+  //      this.createBullet(); // create actual laser object
         
     }
 
@@ -60,7 +60,7 @@
 //BackGround
     // Adding Background function
     p.addBG = function () {
-        var bg = new createjs.Bitmap('Content/game-background-Level1.jpg');
+        var bg = new createjs.Bitmap('Content/game-level1-img.jpg');
         bg.scaleX = 1;
         bg.scaleY = 1;
         this.addChild(bg);
@@ -75,7 +75,7 @@
             lifeCounts.scaleX = .3;
             lifeCounts.scaleY = .3;
             lifeCounts.x = 960 - xMargin;
-            lifeCounts.y = 610;
+            lifeCounts.y = 630;
             xMargin = xMargin + 40;
             this.addChild(lifeCounts);
         }
@@ -105,18 +105,19 @@ var player;
         var players = this.playerContainer;
         var numPlayers = 1;
         var playerSize = 25;
+        var numBullets = 3; // Can vary upon different level
 
         for (i = 0; i < numPlayers; i++) {
             // Creating object from a seperate file
             // File name is MakePlayer
-            player = new MakePlayer();
+            player = new MakePlayer(numBullets);
 
             //After player is created, logic for the game.
             player.speed = 1;
           
             // Player Object's position
             player.x = 10;
-            player.y = 430;
+            player.y = 450;
 
 
             players.addChild(player);
@@ -125,15 +126,15 @@ var player;
     }
     //Bulb 
     p.createBulbContainer = function () {
-        this.createBulbContainer = new createjs.Container();
-        this.BulbContainer = new createjs.Container();
-        this.addChild(this.BulbContainer);
+      //  this.createBulbContainer = new createjs.Container();
+        this.bulbContainer = new createjs.Container();
+        this.addChild(this.bulbContainer);
     }
-    var bulb;
-    p.createBulb = function () {
+var bulb;
+    p.createBulbs = function () {
         var i;
         // Container for bulb object - bulbs - with s at the end
-        bulbs = this.playerContainer;
+        var bulbs = this.bulbContainer;
         var numBulbs = 1;
         var bulbSize = 25;
 
@@ -146,8 +147,8 @@ var player;
             bulb.speed = 1;
 
             // Player Object's position
-            bulb.x = 0;
-            bulb.y = 0;
+            bulb.x = -20;
+            bulb.y = -20;
 
             bulbs.addChild(bulb);
         }// End of for loop
@@ -165,7 +166,7 @@ var transformer;
     p.createTransformers = function () {
         var i;
         // Container for transformers object - transformers - with s at the end
-        transformers = this.playerContainer;
+        var transformers = this.transformerContainer;
         var numTransformers = 1;
         var transdormerSize = 25;
 
@@ -186,15 +187,43 @@ var transformer;
 
     }
 
+//Bullet
     // Laser container and object
-    p.createLaserContainer = function () {
+    p.createBulletContainer = function () {
+        this.bulletContainer = new createjs.Container();
+        this.addChild(this.bulletContainer);
+    }
+// Global Variable for Bullet
+var bullet;
+    p.createBullet = function () {
+       
+            var i;
+            // Container for transformers object - transformers - with s at the end
+            var bullets = this.bulletContainer;
+            var numBullets = 3; // vary for every levels
+            var bulletSize = 25;
 
+            for (i = 0; i < numBullets; i++) {
+                // Creating object from a seperate file
+                // File name is MakePlayer
+                bullet = new MakeBullet(numBullets);
+               // this.graphics.beginFill("#fgf").drawCircle(0, 0, 50);
+                //After player is created, logic for the game.
+                bullet.speed = 1;
+
+                // Player Object's position
+                bullet.x = 100;
+                bullet.y = 300;
+
+                bullets.addChild(bullet[i]);
+            }// End of for loop
     }
 
-    p.createLaser = function () {
 
-    }
 
+
+
+// Game Related Things
     p.update = function () {
         //var i, orb, nextX;
         //var len = this.orbContainer.getNumChildren();
