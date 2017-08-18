@@ -21,11 +21,13 @@
     p.initialize = function () {
         canvas = document.getElementById('canvas'); // getting canvas
         stage = new createjs.Stage(canvas); // stage variable assigning to canvas
+
+        this.changeState(game.GameStates.MAIN_MENU);
+
         createjs.Ticker.setFPS(60);
         createjs.Ticker.on('tick', this.onTick, this); //onTick - upadate stage
         // To change the state of Scene
         // Is it in Main-menu, Start, Game Over  state ?
-        this.changeState(game.GameStates.MAIN_MENU);
     }
 
     // Moving from state to state
@@ -133,13 +135,14 @@
         this.changeState(game.GameStates.RUN_SCENE);
     }
 
-    // Game Over
-    //
+     //Game Over
+    
     //p.gameStateGameOver = function () {
     //    var scene = new game.GameOver();
     //    stage.addChild(scene);
     //    scene.on(game.GameStateEvents.MAIN_MENU, this.onStateEvent, this, false, { state: game.GameStates.MAIN_MENU });
     //    scene.on(game.GameStateEvents.GAME, this.onStateEvent, this, false, { state: game.GameStates.GAME });
+    //    scene.on(game.GameStateEvents.GAMETWO, this.onStateEvent, this, false, { state: game.GameStates.GAMETWO });
     //    stage.removeChild(this.currentScene);
     //    this.currentScene = scene;
     //    this.changeState(game.GameStates.RUN_SCENE);

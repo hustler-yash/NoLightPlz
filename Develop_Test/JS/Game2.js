@@ -42,7 +42,8 @@
         this.addChild(btn);
     }
     p.returnToMainMenu = function (e) {
-        this.dispatchEvent(game.GameStateEvents.MAIN_MENU);
+        window.location.reload();
+        //this.dispatchEvent(game.GameStateEvents.MAIN_MENU);
     }
 
     //BackGround

@@ -17,9 +17,14 @@
     p.playerContainer = null; // container for the player object
     p.bulbContainer = null;// container for the bulb
     p.transformerContainer = null; // container for the transformer object.
+   // p.transformerContainer.w = 150;
+   // p.transformerContainer.h = 150;
     p.bulletContainer = null; // container for the laser object.
+    //p.bulletContainer.w = 10;
+    //p.bulletContainer.h = 10;
 
     p.initialize = function () {
+
         this.Container_initialize();
         this.addBG(); // Add backkground
         this.addButton();
@@ -51,7 +56,8 @@
         this.addChild(btn);
     }
     p.returnToMainMenu = function (e) {
-        this.dispatchEvent(game.GameStateEvents.MAIN_MENU);
+        window.location.reload();
+        //this.dispatchEvent(game.GameStateEvents.MAIN_MENU);
     }
 
 //BackGround
@@ -84,12 +90,16 @@
 // Player
     // Create player container
     p.createPlayerContainer = function () {
+        if (this.playerContainer) {
+            this.removeChild(this.playerContainer)
+        }
+
         this.playerContainer = new createjs.Container();
         this.addChild(this.playerContainer);
     }
 
 //Global Variable for player
-var player;
+    var player;
     
     // Create player object
     p.createPlayer = function () {
@@ -104,6 +114,8 @@ var player;
             // Creating object from a seperate file
             // File name is MakePlayer
             player = new MakePlayer(numBullets);
+           // debugger;
+            console.log(player.bullets);
 
             //After player is created, logic for the game.
             player.speed = 1;
@@ -215,7 +227,30 @@ var transformer;
         //if (!this.orbContainer.getNumChildren()) {
         //    this.dispatchEvent(game.GameStateEvents.GAME_OVER);
         //}
+        
+        //if (checkCollisionWithTransformer(this.transformerContainer, this.bulletContainer)) {
+        //    console.writeline("Collied");
+        //} else {
+        //    console.writeline("Missed");
+        //}
+
+
     }
+
+    //p.checkCollisionWithTransformer = function (transformer, bullet) {
+    //    if (rect1transformer.x < bullet.x + bullet.w &&
+    //    transformer.x + transformer.w > bullet.x &&
+    //    transformer.y < bullet.y + bullet.h &&
+    //    transformer.h + transformer.y > bullet.y) {
+    //        // collision detected!
+    //        //this.color("green");
+    //        return true;
+    //    } else {
+    //        // no collision
+    //        this.color("blue");
+    //        return false;
+    //    }
+    //}
     p.run = function () {
         this.update();
         this.render();

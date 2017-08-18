@@ -40,7 +40,7 @@
         btn.on('click', this.returnToMainMenu, this);
 
         //dimensions and postitions of button
-        btn.regX = btn.width / 2 ;
+        btn.regX = btn.width / 2;
         btn.x = canvas.width / 2;
         btn.y = 630;
 

@@ -49,6 +49,9 @@
     p.playGame = function (e) {
         this.dispatchEvent(game.GameStateEvents.GAME);
     }
+    //p.playGame2 = function (e) {
+    //    this.dispatchEvent(game.GameStateEvents.GAMETWO);
+    //}
 
     window.game.GameOver = GameOver;
 

@@ -20,6 +20,8 @@
     var player;
     var player_speed = 25;
     var bullet = [];
+    MakePlayer.bullets = bullet;
+   // var bullets = game.Game.bulletContainer;
     var bullet_speed = 10;
     var numBullets;
     var numBulletsLeft = numBullets;
@@ -113,6 +115,7 @@
             bullet[i].x = 70;
             bullet[i].y = 32;
             bullet[i].visible = false;
+           // bullets.addChild(bullet[i]);
             this.addChild(bullet[i]);
         }
 
@@ -193,6 +196,7 @@
     function fireBullet(event) {
 
         bullet[j].visible = true;
+      //  if(isCollied(bullet[j], trasformer))
         bullet[j].x = bullet[j].x + bullet_speed;
         bullet[j].y = bullet[j].y - bullet_speed;
 
