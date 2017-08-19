@@ -176,6 +176,11 @@
                 } else {
                     createjs.Ticker.addEventListener("tick", fireBullet);
                     createjs.Ticker.interval = 50;
+                    //var collisison = ndgmr.checkPixelCollision(player, bullet[0]);
+                    //if (collisison) {
+                    //    console.writeline(collisison);
+                    //    console.writeline("Hello");
+                    //}
                     console.log("fireBullet gone..");
                     hits++;
                     console.log(hits);

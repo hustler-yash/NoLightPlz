@@ -48,13 +48,35 @@
 
     //BackGround
     // Adding Background function
+    this.stLR = null,
+    this.stLL = null;
     p.addBG = function () {
         var bg = new createjs.Bitmap('Content/game-level2-background.jpg');
         bg.scaleX = 1;
         bg.scaleY = 1;
         this.addChild(bg);
 
+        // Add Bulb On image - Right Side
+        this.stLR = new createjs.Bitmap('Content/level2light-right.png');
+        this.stLR.scaleX = 1;
+        this.stLR.scaleY = 1;
+        this.stLR.x = 630;
+        this.stLR.y = -5;
+        this.addChild(this.stLR);
+
+        // Add Bulb On image - Left Side
+        this.stLL = new createjs.Bitmap('Content/level2light.png');
+        //this.stLL.rotation = -35;
+        this.stLL.scaleX = 1;
+        this.stLL.scaleY = 1;
+        this.stLL.x = 140;
+        this.stLL.y = -5;
+        this.addChild(this.stLL);
+
+        
     }
+
+   
 
     // Player
     // Create player container

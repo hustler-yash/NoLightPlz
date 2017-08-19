@@ -62,6 +62,27 @@
         bg.scaleY = 1;
         this.addChild(bg);
 
+        // Add Bulb On image - Right Side
+        this.stLR = new createjs.Bitmap('Content/level3Light.png');
+        this.stLR.scaleX = .35;
+        this.stLR.scaleY = .35;
+        this.stLR.x = 615;
+        this.stLR.y = 175;
+        this.addChild(this.stLR);
+
+        this.stLDL = new createjs.Bitmap('Content/level3Light.png');
+        this.stLDL.scaleX = .2;
+        this.stLDL.scaleY = .2;
+        this.stLDL.x = 575;
+        this.stLDL.y = 285;
+        this.addChild(this.stLDL);
+
+        this.stLDR = new createjs.Bitmap('Content/level3Light.png');
+        this.stLDR.scaleX = .2;
+        this.stLDR.scaleY = .2;
+        this.stLDR.x = 685;
+        this.stLDR.y = 285;
+        this.addChild(this.stLDR);
     }
 
     // Player
