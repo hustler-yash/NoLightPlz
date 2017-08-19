@@ -26,6 +26,7 @@
         this.createPlayer(); // create actual player object
         this.addFrontLawn();
         this.addButton();
+        this.addBgSound();
     }
 
     p.addButton = function () {
@@ -75,7 +76,9 @@
 
         
     }
-
+    p.addBgSound = function (e) {
+        s = createjs.Sound.play("Content/audio/parkBackground.mp3", createjs.Sound.INTERRUPT_ANY, 0, 10, -1, .125, 0);
+    }
    
 
     // Player

@@ -28,6 +28,7 @@
         this.addFrontLawn();
         this.addButton();
         this.addBGSound();
+        
     }
     p.addBGSound = function () {
         s = createjs.Sound.play("Content/audio/ParkBackground.mp3", createjs.Sound.INTERRUPT_NONE, 0, 10, -1, .125, 0);

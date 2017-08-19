@@ -133,6 +133,7 @@
                 a_KeyDown = true;
 
                 if (player.x > 0) {
+                    p.addFootstepSound();
                     player.gotoAndPlay('goLeft');
                     player.x = player.x - player_speed;
 
@@ -151,7 +152,7 @@
 
                 if (player.x < STAGE_WIDTH - 100) {
 
-
+                    p.addFootstepSound();
                     player.gotoAndPlay('goRight');
                     player.x = player.x + player_speed;
 
@@ -168,19 +169,16 @@
                 if (j >= numBullets) {
                     return;
                 }
-                if (hits == 6) {
+                if (hits == numBullets) {
                    // 
                     alert("GameOver");
                     console.log("Game OVer");
                     window.location.reload();
                 } else {
+                    p.addGunshotSound();
                     createjs.Ticker.addEventListener("tick", fireBullet);
                     createjs.Ticker.interval = 50;
-                    //var collisison = ndgmr.checkPixelCollision(player, bullet[0]);
-                    //if (collisison) {
-                    //    console.writeline(collisison);
-                    //    console.writeline("Hello");
-                    //}
+                    
                     console.log("fireBullet gone..");
                     hits++;
                     console.log(hits);
@@ -203,6 +201,13 @@
                 d_KeyDown = false;
                 break;
         }
+    }
+
+    p.addFootstepSound = function (e) {
+        s = createjs.Sound.play("Content/audio/footsteps.mp3", createjs.Sound.INTERRUPT_NONE, 0, 1, 1, .1, 0);
+    }
+    p.addGunshotSound = function (e) {
+        s = createjs.Sound.play("Content/audio/fireshot.mp3", createjs.Sound.INTERRUPT_NONE, 0, 200, 0, .1, 0);
     }
 
     var j = 0;

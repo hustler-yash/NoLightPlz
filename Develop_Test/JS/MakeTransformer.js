@@ -25,6 +25,7 @@
         // Actions carried out each tick (aka frame)
         if (!event.paused) {
             // Actions carried out when the Ticker is not paused.
+            p.addTransSound(); // Sound 
             if (transformer.x < -120) {
                 transformer.x = STAGE_WIDTH ;
             } else {
@@ -32,6 +33,11 @@
                 //transformer.update();
             }
         }
+    }
+
+    p.addTransSound = function () {
+        s = createjs.Sound.play("Content/audio/transformerEffect.mp3", createjs.Sound.INTERRUPT_ANY, 0, 10, -1, 0.0075, 0);
+        //this.addChild(s);
     }
 
 //Transformer
