@@ -8,6 +8,7 @@
         RUN_SCENE:2,
         GAME: 10,
         GAMETWO: 20,
+        GAMETHRREE: 30,
         SCORE_SCREEN:11,
         GAME_OVER:50
     }
@@ -19,6 +20,7 @@
         MAIN_MENU_SELECT:'game menu select event',
         GAME: 'game event',
         GAMETWO: 'game two event',
+        GAMETHREE: 'game three event',
         SCORE_SCREEN:'score screen event'
     }
 

@@ -20,10 +20,11 @@
     var player;
     var player_speed = 25;
     var bullet = [];
-    MakePlayer.bullets = bullet;
+    //MakePlayer.bullets = bullet;
    // var bullets = game.Game.bulletContainer;
     var bullet_speed = 10;
     var numBullets;
+    var hits = 0;
     var numBulletsLeft = numBullets;
 
 
@@ -167,12 +168,19 @@
                 if (j >= numBullets) {
                     return;
                 }
+                if (hits == 6) {
+                   // 
+                    alert("GameOver");
+                    console.log("Game OVer");
+                    window.location.reload();
+                } else {
+                    createjs.Ticker.addEventListener("tick", fireBullet);
+                    createjs.Ticker.interval = 50;
+                    console.log("fireBullet gone..");
+                    hits++;
+                    console.log(hits);
+                }
 
-                createjs.Ticker.addEventListener("tick", fireBullet);
-                createjs.Ticker.interval = 50;
-                console.log("fireBullet done..");
-
-                
                 break;
 
         }

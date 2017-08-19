@@ -213,6 +213,11 @@ var transformer;
         //    }
         //    orb.nextX = nextX;
         //}
+        var collisison = ndgmr.checkPixelCollision(player, transformer);
+        if (collisison) {
+            console.writeline(collisison);
+            console.writeline("Hello");
+        }
     }
     p.render = function () {
         //var i, orb;

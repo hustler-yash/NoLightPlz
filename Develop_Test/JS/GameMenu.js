@@ -19,6 +19,7 @@
         this.addBGSound();
         this.addButton();
         this.addButton2();
+        this.addButton3();
         this.addControlsButton();
     }
     p.addBG = function () {
@@ -46,9 +47,9 @@
         btn = new ui.SimpleButton('Play Game');
         btn.on('click', this.playGame, this);
         //dimensions and postitions of button
-        btn.regX = btn.width / 2    ;
-        btn.x = canvas.width / 2;
-        btn.y = 500;
+        btn.regX = btn.width / 2   ;
+        btn.x = (canvas.width / 2) + 200 ;
+        btn.y = 520;
 
         btn.setButton({upColor:'FF0000', color:'#FFF', borderColor:'#FFF', overColor:'#900'});
         this.addChild(btn);
@@ -62,8 +63,8 @@
 
         //dimensions and postitions of button
         btn.regX = btn.width / 2 ;
-        btn.x = canvas.width / 2;
-        btn.y = 560;
+        btn.x = (canvas.width / 2) + 400;
+        btn.y = 520;
 
         btn.setButton({ upColor: 'FF0000', color: '#FFF', borderColor: '#FFF', overColor: '#900' });
         this.addChild(btn);
@@ -75,8 +76,21 @@
 
         //dimensions and postitions of button
         btn.regX = btn.width / 2;
-        btn.x = canvas.width / 2;
-        btn.y = 620;
+        btn.x = (canvas.width / 2) + 200;
+        btn.y = 580;
+
+        btn.setButton({ upColor: 'FF0000', color: '#FFF', borderColor: '#FFF', overColor: '#900' });
+        this.addChild(btn);
+    }
+    p.addButton3 = function () {
+        var btn, event;
+        btn = new ui.SimpleButton('Go to Level-3');
+        btn.on('click', this.goToLevel3, this);
+
+        //dimensions and postitions of button
+        btn.regX = btn.width / 2;
+        btn.x = (canvas.width / 2) + 400;
+        btn.y = 580;
 
         btn.setButton({ upColor: 'FF0000', color: '#FFF', borderColor: '#FFF', overColor: '#900' });
         this.addChild(btn);
@@ -95,6 +109,11 @@
     p.goToLevel2 = function (e) {
         //   p.stopBGsound();
         this.dispatchEvent(game.GameStateEvents.GAMETWO);
+    }
+
+    p.goToLevel3 = function (e) {
+        //   p.stopBGsound();
+        this.dispatchEvent(game.GameStateEvents.GAMETHREE);
     }
 
     //p.run = function () {
